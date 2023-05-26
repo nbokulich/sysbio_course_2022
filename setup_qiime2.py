@@ -88,9 +88,17 @@ if __name__ == "__main__":
             ["conda", "install", "mamba", "-y", "-n", "base",
              "-c", "conda-forge"],
             "mamba",
-            ":mag: Installing mamba...",
+            ":snake: Installing mamba...",
             "could not install mamba :sob:",
-            ":mag: Done."
+            ":tada: Done."
+        )
+
+        run_and_check(
+            ["conda", "install", "python=3.8"],
+            "python",
+            ":snake: installing python...",
+            "could not install python :sob:",
+            ":tada: Done."
         )
 
         run_and_check(
