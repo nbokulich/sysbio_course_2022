@@ -20,6 +20,10 @@ MINICONDA_PATH = (
     "https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh"
 )
 
+ENV_PATH = (
+    "wget https://data.qiime2.org/distro/core/qiime2-2023.2-py38-linux-conda.yml"
+)
+
 
 def cleanup():
     """Remove downloaded files."""
@@ -94,6 +98,14 @@ if __name__ == "__main__":
         )
 
         run_and_check(
+            ["wget", "-O". "environment.yml", ENV_PATH],
+            "saved",
+            ":mag: Downloading QIIME 2 environment file...",
+            "failed downloading QIIME 2 environment file :sob:",
+            ":tada: Done."
+        )
+
+        run_and_check(
             ["mamba", "env", "update", "-n", "base", "--file",
              "environment.yml"],
             "To activate this environment, use",
@@ -104,7 +116,7 @@ if __name__ == "__main__":
 
         run_and_check(
             ["pip", "install",
-             "git+https://github.com/bokulich-lab/q2-fondue.git@cb924d43d1c217342911fc5c2eaf136d4d283fa4"],
+             "git+https://github.com/bokulich-lab/q2-fondue.git"],
             "Successfully installed",
             ":mag: Installing required plugins. "
             "This may take a little bit.\n :clock1:",
