@@ -94,7 +94,7 @@ if __name__ == "__main__":
         )
 
         run_and_check(
-            ["mamba", "install", "-c", "conda-forge", "-c", "bioconda",
+            ["mamba", "install", "--yes", "-c", "conda-forge", "-c", "bioconda",
              "-c", "qiime2", "-c", "https://packages.qiime2.org/qiime2/2023.5/tested/",
              "-c", "defaults", "qiime2", "q2cli", "q2templates", "q2-types",
              "q2-longitudinal", "q2-feature-classifier",  "q2-demux", "q2-metadata",
