@@ -21,7 +21,7 @@ MINICONDA_PATH = (
 )
 
 ENV_PATH = (
-    "wget https://data.qiime2.org/distro/core/qiime2-2023.2-py38-linux-conda.yml"
+    "https://data.qiime2.org/distro/core/qiime2-2023.2-py38-linux-conda.yml"
 )
 
 
