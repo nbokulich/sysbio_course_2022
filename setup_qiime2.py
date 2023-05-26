@@ -98,7 +98,7 @@ if __name__ == "__main__":
         )
 
         run_and_check(
-            ["wget", "-O". "environment.yml", ENV_PATH],
+            ["wget", "-O", "environment.yml", ENV_PATH],
             "saved",
             ":mag: Downloading QIIME 2 environment file...",
             "failed downloading QIIME 2 environment file :sob:",
