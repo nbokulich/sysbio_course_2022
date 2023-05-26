@@ -20,10 +20,6 @@ MINICONDA_PATH = (
     "https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh"
 )
 
-ENV_PATH = (
-    "https://data.qiime2.org/distro/core/qiime2-2023.2-py38-linux-conda.yml"
-)
-
 
 def cleanup():
     """Remove downloaded files."""
@@ -98,29 +94,16 @@ if __name__ == "__main__":
         )
 
         run_and_check(
-            ["wget", "-O", "environment.yml", ENV_PATH],
-            "saved",
-            ":mag: Downloading QIIME 2 environment file...",
-            "failed downloading QIIME 2 environment file :sob:",
-            ":tada: Done."
-        )
-
-        run_and_check(
-            ["mamba", "env", "update", "-n", "base", "--file",
-             "environment.yml"],
+            ["mamba", "install", "-c", "conda-forge", "-c", "bioconda",
+             "-c", "qiime2", "-c", "https://packages.qiime2.org/qiime2/2023.5/tested/",
+             "-c", "defaults", "qiime2", "q2cli", "q2templates", "q2-types",
+             "q2-longitudinal", "q2-feature-classifier",  "q2-demux", "q2-metadata",
+             "q2-dada2", "q2-phylogeny", "q2-diversity", "q2-taxa",
+             "q2-sample-classifier", "q2-types-genomics>2023.2", "pandas>=0.25.3",
+             "xmltodict", "ncbi-datasets-pylib", "q2-fondue"],
             "To activate this environment, use",
             ":mag: Installing QIIME 2. This may take a little bit.\n :clock1:",
             "could not install QIIME 2 :sob:",
-            ":mag: Done."
-        )
-
-        run_and_check(
-            ["pip", "install",
-             "git+https://github.com/bokulich-lab/q2-fondue.git"],
-            "Successfully installed",
-            ":mag: Installing required plugins. "
-            "This may take a little bit.\n :clock1:",
-            "could not install some QIIME 2 plugins :sob:",
             ":mag: Done."
         )
 
@@ -148,15 +131,6 @@ if __name__ == "__main__":
             ":mag: Installing RESCRIPt. "
             "This may take a little bit.\n :clock1:",
             "could not install RESCRIPt :sob:",
-            ":mag: Done."
-        )
-
-        run_and_check(
-            ["pip", "install", "git+https://github.com/qiime2/provenance-lib.git"],
-            "Successfully installed",
-            ":mag: Installing provenance-lib. "
-            "This may take a little bit.\n :clock1:",
-            "could not install provenance-lib :sob:",
             ":mag: Done."
         )
 
