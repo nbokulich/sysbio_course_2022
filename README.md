@@ -1,6 +1,6 @@
 # Advanced Block Course: Computational Biology
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/bokulich-lab/sysbio_course_2022/blob/main/amplicon_analysis.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/bokulich-lab/advanced-comp-bio-tutorial/blob/main/amplicon_analysis.ipynb)
 
 This repository contains materials accompanying the Advanced Block Course: Computational Biology.
 To jump directly to the analysis notebook, click on the badge above ⬆️.
