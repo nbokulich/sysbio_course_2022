@@ -85,19 +85,19 @@ if __name__ == "__main__":
 
     if not has_qiime:
         run_and_check(
+            ["conda", "install", "python=3.8"],
+            "python",
+            ":snake: installing python...",
+            "could not install python :sob:",
+            ":tada: Done."
+        )
+
+        run_and_check(
             ["conda", "install", "mamba", "-y", "-n", "base",
              "-c", "conda-forge"],
             "mamba",
             ":snake: Installing mamba...",
             "could not install mamba :sob:",
-            ":tada: Done."
-        )
-
-        run_and_check(
-            ["conda", "install", "python=3.8"],
-            "python",
-            ":snake: installing python...",
-            "could not install python :sob:",
             ":tada: Done."
         )
 
