@@ -104,7 +104,7 @@ if __name__ == "__main__":
             ":mag: Done."
         )
         
-         run_and_check(
+        run_and_check(
             ["pip", "install",
              "git+https://github.com/bokulich-lab/q2-fondue.git"],
             "Successfully installed",
