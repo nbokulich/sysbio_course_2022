@@ -17,14 +17,16 @@ has_qiime = "QIIME 2 release:" in os.popen("qiime info").read()
 
 
 MINICONDA_PATH = (
-    "https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh"
+    "https://repo.anaconda.com/miniconda/Miniconda3-py38_23.3.1-0-Linux-x86_64.sh"
 )
 
 
+miniconda_basename = os.path.basename(MINICONDA_PATH)
+
 def cleanup():
     """Remove downloaded files."""
-    if os.path.exists("Miniconda3-latest-Linux-x86_64.sh"):
-        os.remove("Miniconda3-latest-Linux-x86_64.sh")
+    if os.path.exists(miniconda_basename):
+        os.remove(miniconda_basename)
     if os.path.exists("install-sra-tools.sh"):
         os.remove("install-sra-tools.sh")
     con.log("Cleaned up unneeded files.")
@@ -74,7 +76,7 @@ if __name__ == "__main__":
         )
 
         run_and_check(
-            ["bash", "Miniconda3-latest-Linux-x86_64.sh", "-bfp", "/usr/local"],
+            ["bash", miniconda_basename, "-bfp", "/usr/local"],
             "installation finished.",
             ":snake: Installing miniconda...",
             "could not install miniconda :sob:",
@@ -85,14 +87,6 @@ if __name__ == "__main__":
 
     if not has_qiime:
         run_and_check(
-            ["conda", "install", "python=3.8"],
-            "python",
-            ":snake: installing python...",
-            "could not install python :sob:",
-            ":tada: Done."
-        )
-
-        run_and_check(
             ["conda", "install", "mamba", "-y", "-n", "base",
              "-c", "conda-forge"],
             "mamba",
@@ -102,19 +96,14 @@ if __name__ == "__main__":
         )
 
         run_and_check(
-            ["mamba", "install", "--yes", "-c", "conda-forge", "-c", "bioconda",
-             "-c", "qiime2", "-c", "https://packages.qiime2.org/qiime2/2023.5/tested/",
-             "-c", "defaults", "qiime2", "q2cli", "q2templates", "q2-types",
-             "q2-longitudinal", "q2-feature-classifier",  "q2-demux", "q2-metadata",
-             "q2-dada2", "q2-phylogeny", "q2-diversity", "q2-taxa",
-             "q2-sample-classifier", "q2-types-genomics>2023.2", "pandas>=0.25.3",
-             "xmltodict", "ncbi-datasets-pylib", "q2-fondue"],
+            ["mamba", "env", "update", "-n", "base", "--file",
+             "environment.yml"],
             "To activate this environment, use",
             ":mag: Installing QIIME 2. This may take a little bit.\n :clock1:",
             "could not install QIIME 2 :sob:",
             ":mag: Done."
         )
-
+        
         run_and_check(
             ["pip", "install", "redbiom"],
             "Successfully installed",
