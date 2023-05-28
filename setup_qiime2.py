@@ -104,6 +104,16 @@ if __name__ == "__main__":
             ":mag: Done."
         )
         
+         run_and_check(
+            ["pip", "install",
+             "git+https://github.com/bokulich-lab/q2-fondue.git"],
+            "Successfully installed",
+            ":mag: Installing required plugins. "
+            "This may take a little bit.\n :clock1:",
+            "could not install some QIIME 2 plugins :sob:",
+            ":mag: Done."
+        )
+        
         run_and_check(
             ["pip", "install", "git+https://github.com/bokulich-lab/RESCRIPt.git"],
             "Successfully installed",
