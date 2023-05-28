@@ -105,24 +105,6 @@ if __name__ == "__main__":
         )
         
         run_and_check(
-            ["pip", "install", "redbiom"],
-            "Successfully installed",
-            ":mag: Installing redbiom. "
-            "This may take a little bit.\n :clock1:",
-            "could not install redbiom :sob:",
-            ":mag: Done."
-        )
-
-        run_and_check(
-            ["pip", "install", "q2-clawback"],
-            "Successfully installed",
-            ":mag: Installing q2-clawback. "
-            "This may take a little bit.\n :clock1:",
-            "could not install q2-clawback :sob:",
-            ":mag: Done."
-        )
-
-        run_and_check(
             ["pip", "install", "git+https://github.com/bokulich-lab/RESCRIPt.git"],
             "Successfully installed",
             ":mag: Installing RESCRIPt. "

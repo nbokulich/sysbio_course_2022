@@ -722,6 +722,4 @@ dependencies:
   - zlib=1.2.13=h166bdaf_4
   - zstandard=0.19.0=py38h5945529_1
   - zstd=1.5.2=h3eb15da_6
-  - pip:
-      - q2-fondue==2023.2.0.dev0+2.gd5167a9
 prefix: /usr/local
